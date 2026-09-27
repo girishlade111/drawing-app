@@ -1,30 +1,71 @@
-# Drawing app
+# Drawing App
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+A browser-based **freehand drawing app** — sketch on a canvas with multiple tools, colors, and brush sizes, then download your artwork as a PNG. Built as a fully client-side Next.js app; nothing ever leaves the browser.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/gileb64375-5584s-projects/v0-drawing-app)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/projects/AF6DR3LCZFn)
+## What it does
 
-## Overview
+- **Freehand pen** — draw with a smooth pen, adjustable brush size
+- **Eraser** — erase parts of the drawing
+- **Shape tools** — rectangle, circle, and line tools
+- **Text tool** — place text on the canvas
+- **Color palette** — preset colors plus a custom color picker
+- **Brush size slider** — control stroke width
+- **Clear canvas** — wipe and start over
+- **Download PNG** — export your drawing as an image file
+- **Tooltips** — hover tooltips on every toolbar control
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+## Tech stack
+
+| Layer        | Tech |
+|--------------|------|
+| Framework    | Next.js 15 (App Router, static export) |
+| Language     | TypeScript |
+| UI           | React 19, Tailwind CSS, shadcn/ui (Radix primitives) |
+| Canvas       | HTML5 Canvas API |
+| Icons        | Lucide React |
+
+## Quick start
+
+Prerequisites: Node.js 18+.
+
+```bash
+npm install          # or: pnpm install
+npm run dev          # dev server at http://localhost:3000
+```
+
+Build a static export:
+
+```bash
+npm run build        # outputs to ./out
+```
+
+Serve the static build:
+
+```bash
+npx serve out        # or deploy ./out anywhere static
+```
+
+## Project structure
+
+```
+app/                # Next.js App Router (page, layout)
+components/         # DrawingCanvas (toolbar + canvas logic), theme-provider
+components/ui/      # shadcn/ui primitives (button, input, slider, tooltip)
+lib/                # Shared utilities
+styles/             # Global styles
+public/             # Static assets
+```
+
+## Environment variables
+
+None required — fully client-side, no backend or API keys.
 
 ## Deployment
 
-Your project is live at:
+The project is configured for static export (`output: "export"` in `next.config.mjs`). `npm run build` produces the `./out` directory, which can be hosted on GitHub Pages, Netlify, Cloudflare Pages, or any static host.
 
-**[https://vercel.com/gileb64375-5584s-projects/v0-drawing-app](https://vercel.com/gileb64375-5584s-projects/v0-drawing-app)**
+Live demo: https://girishlade111.github.io/drawing-app/
 
-## Build your app
+---
 
-Continue building your app on:
-
-**[https://v0.app/chat/projects/AF6DR3LCZFn](https://v0.app/chat/projects/AF6DR3LCZFn)**
-
-## How It Works
-
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Built by Girish Lade — https://ladestack.in
